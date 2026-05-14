@@ -23,4 +23,4 @@ COPY --from=build /app/target/*.jar app.jar
 USER appuser
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Djdk.tls.client.protocols=TLSv1.2", "-Dcom.sun.jndi.ldap.object.disableEndpointIdentification=true", "-jar", "app.jar"]
