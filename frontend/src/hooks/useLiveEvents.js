@@ -6,7 +6,8 @@ export function useLiveEvents() {
   const sourceRef = useRef(null)
 
   useEffect(() => {
-    const source = new EventSource('/api/stream')
+    const baseUrl = import.meta.env.VITE_API_URL || ''
+    const source = new EventSource(`${baseUrl}/api/stream`)
     sourceRef.current = source
 
     source.onopen = () => setConnected(true)
