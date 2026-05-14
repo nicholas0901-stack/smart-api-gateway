@@ -33,5 +33,3 @@ A full-stack portfolio project demonstrating middleware and application engineer
 | Cloud | Vercel (frontend), Render (backend), MongoDB Atlas |
 
 ---
-
-## Architecture
