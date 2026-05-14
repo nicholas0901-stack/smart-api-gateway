@@ -1,13 +1,14 @@
 import { useEffect, useState, useRef } from 'react'
 
+const BACKEND_URL = import.meta.env.VITE_API_URL || 'https://smart-api-gateway-backend.onrender.com'
+
 export function useLiveEvents() {
   const [events, setEvents] = useState([])
   const [connected, setConnected] = useState(false)
   const sourceRef = useRef(null)
 
   useEffect(() => {
-    const baseUrl = import.meta.env.VITE_API_URL || ''
-    const source = new EventSource(`${baseUrl}/api/stream`)
+    const source = new EventSource(`${BACKEND_URL}/api/stream`)
     sourceRef.current = source
 
     source.onopen = () => setConnected(true)

@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+const BACKEND_URL = import.meta.env.VITE_API_URL || 'https://smart-api-gateway-backend.onrender.com'
+
 const api = axios.create({
-  baseURL: '',
+  baseURL: BACKEND_URL,
   headers: { 'Content-Type': 'application/json' }
 })
 
